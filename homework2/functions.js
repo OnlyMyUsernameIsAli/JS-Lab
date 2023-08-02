@@ -1,22 +1,22 @@
-function CenterNum(num1, num2, num3) {
-    if (num1 > num3) {
-        let x = num3
-        num3 = num1
-        num1 = x
-    }
-    if (num1 > num2) {
-        let x = num2
-        num2 = num1
-        num1 = x
-    }
-    if (num2 > num3) {
-        let x = num2
-        num2 = num3
-        num3 = x
-    }
-    document.write("The Middle number : ", num2)
-    console.log(num1, num2, num3)
-}
+// function CenterNum(num1, num2, num3) {
+//     if (num1 > num3) {
+//         let x = num3
+//         num3 = num1
+//         num1 = x
+//     }
+//     if (num1 > num2) {
+//         let x = num2
+//         num2 = num1
+//         num1 = x
+//     }
+//     if (num2 > num3) {
+//         let x = num2
+//         num2 = num3
+//         num3 = x
+//     }
+//     document.write("The Middle number : ", num2)
+//     console.log(num1, num2, num3)
+// }
 
 // let OutNum = 0
 // function Collector(InNum) {
