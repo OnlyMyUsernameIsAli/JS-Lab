@@ -1,0 +1,19 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: #252525;
+}
+
+.container__div--color {
+    width: 100px !important;
+    height: 100px;
+    padding: 0 !important;
+    background-color: rgb(107, 104, 104);
+    border: 2px solid black;
+}
