@@ -15,40 +15,30 @@
 //     colorBox[index].onclick = func;
 // }
 
-
-function func(numbers){
-    debugger;
-    let result = ""
-    // for (let i = 0; i < numbers.length; i++) {
-    //   for (let k = 0; k < numbers.length; k++) {
-    //     if (numbers[i] > numbers[k]) {
-    //       let x = numbers[i];
-    //       numbers[i] = numbers[k];
-    //       numbers[k] = x;
-    //     }
-    //   }
-    // }
-    // for (let i = numbers.length-1; i >= 0; i--) {
-    //   if (i === numbers.length-1) {
-    //     result = `${numbers[i]} `;
-    //   }
-    //   if (i === 0) {
-    //     result += numbers[i];
-    //   }
-    // }
-
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] === " ") {
-            numbers[i] = ",";
+function func(numbers) {
+  // debugger;
+  let x = "";
+  let arr = [];
+  let result = "";
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] !== " ") {
+        if (numbers[i] === "-") {
+            x += numbers[i];
         }
-        
+        if (isFinite(numbers[i]) === true) {
+            x += numbers[i];
+        }
     }
-    result = Math.max(numbers);
-    result += " ";
-    result = Math.min(numbers);
-    console.log(result);
+    else {
+        arr.push(+x);
+        x = "";
+    }
   }
-
-  let numbers = prompt("enter num :");
-  func(numbers)
-
+  arr.push(+x);
+  result = Math.max(...arr);
+  result += " ";
+  result += Math.min(...arr);
+  console.log(result);
+}
+let numbers = prompt("enter num :");
+func(numbers);

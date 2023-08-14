@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #001300;
+    overflow: hidden;
+    animation: ColorChange 10s linear infinite;
+}
+
+@keyframes ColorChange {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.container span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    background-color: #00ff0a;
+    box-shadow: 0 0 10px #00ff0a,0 0 20px #00ff0a,0 0 40px #00ff0a,0 0 60px #00ff0a,0 0 80px #00ff0a,0 0 100px #00ff0a;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 2s;
+}
+
+.container span:hover::before {
+    transform: scale(2);
+    transition: 0s;
+}
