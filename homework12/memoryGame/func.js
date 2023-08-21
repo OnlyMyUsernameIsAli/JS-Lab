@@ -87,6 +87,7 @@ function matchCards() {
     setTimeout(function() {
         if (matchedCard == 16) {
             alert("you win!!!");
+            location.reload();
         }
     }, 1000)
 }
