@@ -98,6 +98,7 @@ i {
 
 .show {
     transform: rotate3d(160, 140, 80, -25deg) rotateY(0deg);
+    pointer-events: none;
 }
 
 .show i {
