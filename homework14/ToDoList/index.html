@@ -11,25 +11,41 @@
 
 <body>
     <h1>My Todo List</h1>
-    <section>
+    <section class="list-header">
         <div class="header">
             <span class="todo-count">
-                <strong>5</strong> items left
+                <strong>0</strong> items left
             </span>
             <ul class="filters">
                 <li>
-                    <a href="#/" class="selected">All</a>
+                    <a href="#/all" class="all selected">All</a>
                 </li>
                 <li>
-                    <a href="#/active" class>Active</a>
+                    <a href="#/active" class="active">Active</a>
                 </li>
                 <li>
-                    <a href="#/completed" class>Completed</a>
+                    <a href="#/completed" class="completed">Completed</a>
                 </li>
             </ul>
             <button class="clear-completed" style="display: block;">Clear completed</button>
         </div>
-        <input type="text">
+        <div class="input-container">
+            <div class="input-box">
+                <input class="todo-input" type="text">
+                <button class="todo-input-submit">Submit</button>
+            </div>
+        </div>
+    </section>
+    <section class="main-list">
+        <div class="todo-list-container">
+            <ul class="todo-list">
+                <!-- <li>
+                    <input class="toggle" type="checkbox">
+                    <label>ali</label>
+                    <button class="delete"></button>
+                </li> -->
+            </ul>
+        </div>
     </section>
 </body>
 
