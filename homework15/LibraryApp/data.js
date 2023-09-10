@@ -151,7 +151,7 @@ function render() {
     row.innerHTML = "";
     for (const object of books) {
         row.innerHTML +=
-            `<div class="MyCard col-3">
+            `<div class="MyCard">
             <div class="img-container">
                 <figure style="text-align: center;">
                     <img src="./image/${object.imgSrc}">
@@ -164,6 +164,10 @@ function render() {
                 <span>سال انتشار : <span class="published_date">${object.published_date}</span></span>
                 <span>زبان : <span class="language">${object.language}</span></span>
                 <span>ژانر : <span class="genre">${object.genre}</span></span>
+                <div class="btn-container">
+                    <button class="favorite"><i class="fa fa-heart"></i></button>
+                <button class="addToCard"><i class="fa fa-shopping-cart"></i></button>
+                </div>
             </div>
         </div>
         `

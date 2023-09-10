@@ -252,6 +252,6 @@ input:focus-visible {
     color: red;
 }
 
-.todo-list .complete {
+.todo-list .completed {
     background-color: rgb(183, 230, 183);
 }
