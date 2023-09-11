@@ -145,33 +145,50 @@ const books = [
     }
 ]
 
+let arrFav = []; 
+
 let row = document.querySelector(".row");
+let cart_icon = document.querySelector(".cart_icon");
+let home = document.querySelector(".home");
+
 
 function render() {
     row.innerHTML = "";
     for (const object of books) {
         row.innerHTML +=
             `<div class="MyCard">
-            <div class="img-container">
-                <figure style="text-align: center;">
-                    <img src="./image/${object.imgSrc}">
-                    <figcaption>${object.title}</figcaption>
-                </figure>
-            </div>
-            <div class="text-container">
-                <span>عنوان : <span class="title">${object.title}</span></span>
-                <span>نویسنده : <span class="author">${object.author}</span></span>
-                <span>سال انتشار : <span class="published_date">${object.published_date}</span></span>
-                <span>زبان : <span class="language">${object.language}</span></span>
-                <span>ژانر : <span class="genre">${object.genre}</span></span>
-                <div class="btn-container">
-                    <button class="favorite"><i class="fa fa-heart"></i></button>
-                <button class="addToCard"><i class="fa fa-shopping-cart"></i></button>
+                <div class="img-container">
+                    <figure style="text-align: center;">
+                        <img src="./image/${object.imgSrc}">
+                        <figcaption>${object.title}</figcaption>
+                    </figure>
                 </div>
-            </div>
-        </div>
-        `
+                <div class="text-container">
+                    <span>عنوان : <span class="title">${object.title}</span></span>
+                    <span>نویسنده : <span class="author">${object.author}</span></span>
+                    <span>سال انتشار : <span class="published_date">${object.published_date}</span></span>
+                    <span>زبان : <span class="language">${object.language}</span></span>
+                    <span>ژانر : <span class="genre">${object.genre}</span></span>
+                    <div class="btn-container">
+                        <button class="favorite" onclick="favoritePage(event)"><i class="fa fa-heart"></i></button>
+                        <button class="addToCard"><i class="fa fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>`
     }
 }
 
+function favoritePage(event) {
+    arrFav.push(event.target.parentElement.parentElement.parentElement);
+}
+
+function renderFav() {
+    row.innerHTML = ""
+    arrFav.map(item => {
+        row.innerHTML += item.outerHTML;
+    })
+}
+
 window.addEventListener("load", render);
+cart_icon.addEventListener("click", renderFav);
+home.addEventListener("click", render);
