@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="./data.js" defer></script>
+    <link rel="stylesheet" href="./assets/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./assets/swiper/swiper-bundle.min.js" defer></script>
+    <script src="./assets/data.js" defer></script>
     <title>Library</title>
 </head>
 
@@ -19,22 +21,22 @@
                 <ul class="navbar-nav m-auto" id="navBar">
                     <div id="marker"></div>
                     <li class="nav-item">
-                        <a class="nav-link home" href="#">
+                        <a class="nav-link home" href="">
                             Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="">
                             About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="">
                             Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="">
                             Contact
                         </a>
                     </li>
@@ -43,26 +45,40 @@
             <div class="icons">
                 <ul class="menu_icon d-flex flex-wrap align-items-center">
                     <li>
-                        <a class="cart_icon" href="#">
+                        <a class="cart_icon_fav" href="#">
                             <i class="fa fa-heart" style="color: red;"></i>
                             <span>00</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#favorite-page" class="cart_icon">
+                        <a href="#favorite-page" class="cart_icon_shop">
                             <i class="fa fa-shopping-cart" style="color: orange;"></i>
+                            <span>00</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
-        <div class="row"></div>
+
+    <!-- header end -->
+
+    <div class="container-fluid main-root">
+        <div class="header__div__img-container">
+            <img src="./assets/image/bg-1.jpg">
+        </div>
+        <div class="swiper slider" style="width: 100%; height: 100px;">
+            <div class="swiper-wrapper root"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    <script src="./assets/slider.js" defer></script>
 </body>
 
 </html>
