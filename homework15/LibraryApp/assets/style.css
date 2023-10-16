@@ -22,6 +22,11 @@ span {
     font-family: iranyekan,BYekan,IRANSans,Tahoma,Arial,'Times New Roman';
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+}
+
 span {
     color: black;
 }
@@ -239,6 +244,162 @@ nav {
 .menu_icon {
     margin: 0;
     padding: 0;
+}
+
+.menu_icon li {
+    position: relative;
+}
+
+.CardContainer {
+    position: absolute;
+    width: 400px;
+    height: 210px;
+    top: 57px;
+    border-radius: 8px;
+    overflow: scroll;
+    background-color: #fff;
+    transform: translateX(460px);
+    transition: .5s;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .14), 0 4px 8px 6px rgba(0, 0, 0, .3);
+}
+
+.CardContainer > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.CardContainer > div::-webkit-scrollbar {
+    display: none;
+}
+
+.CardContainer:last-child {
+    transform: translateX(550px);
+    height: 273px;
+    
+}
+
+.ShoppingCardBox {
+    padding-bottom: 43px;
+}
+
+.notranslate {
+    transform: translateX(0) !important;
+}
+
+.CardContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.CartHeader {
+    padding: 4px 12px 10px 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+}
+
+.CartHeader p {
+    margin: 0;
+}
+
+.CartMiddle {
+    width: 100%;
+    display: flex;
+    padding: 0 8px;
+    margin: 8px 0;
+}
+
+.FavCartMiddle {
+    width: 100%;
+    display: flex;
+    padding: 8px 8px;
+    margin: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.FavCartMiddle .leftCont {
+    width: calc(100% / 4 - 4px);
+    margin: 0 8px 0 1rem;
+}
+
+.CartMiddle .leftCont {
+    width: calc(100% / 4 - 4px);
+    margin: 0 8px 0 1rem;
+}
+
+.manipulation {
+    padding: 8px 0;
+}
+
+.manipulation ul {
+    display: flex;
+}
+
+.manipulation ul li {
+    margin: 0 9px;
+    display: flex;
+    align-items: center;
+}
+
+.manipulation span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.CartMiddle .rightCont {
+    width: calc(100% / 4 * 3 - 4px);
+}
+
+.rightCont p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.rightCont span {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.CartFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 43px;
+}
+
+.CartFooter > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.CartFooter p {
+    position: absolute;
+    right: 16px;
+    bottom: 10px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.CartFooter .ProceedtoCheckout {
+    position: absolute;
+    border: none;
+    bottom: 8px;
+    left: 16px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    background-color: #21409a;
+    color: white;
 }
 
 .cart_icon_fav,
@@ -543,7 +704,6 @@ ul {
     font-size: 24px;
     color: red;
 }
-
 
 .back {
     font-size: 30px;

@@ -241,7 +241,12 @@ const books = [
     }
 ]
 
-let arrFavCard = [];
+let arrFav = [];
+let arrShoppingCart = [];
+let getID = 0;
+let product = null;
+let ShoppingCardSpan = document.querySelector(".ShoppingCardSpan")
+let FavSpan = document.querySelector(".FavSpan")
 let main_root = document.querySelector(".main-root");
 let cart_icon = document.querySelector(".cart_icon");
 let home = document.querySelector(".home");
@@ -369,9 +374,8 @@ function showAll() {
 }
 
 function openCard(event) {
-    let index = event.target.parentNode.parentNode.getAttribute("id");
-    let product = books.find(item => item.id === +index);
-    console.log(product);
+    getID = +event.target.parentNode.parentNode.getAttribute("id");
+    product = books.find(item => item.id === getID);
     main_root.innerHTML = "";
     main_root.innerHTML = `
     <div class="header__div__img-container">
@@ -393,28 +397,117 @@ function openCard(event) {
                 <p class="label-price">قیمت محصول :</p>
                 <p><span class="price">${product.price}</span> تومان</p>
                 <div class="productButtons">
-                    <button class="product_btn product_addToCard"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
-                    <button class="product_btn product_addToFav"><i class="fa fa-heart"></i></button>
+                    <button class="product_btn product_addToCard" onclick="AddToCard(event)" id="${product.id}"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
+                    <button class="product_btn product_addToFav" onclick="AddFav(event)" id="${product.id}"><i class="fa fa-heart"></i></button>
                 </div>
             </div>
             <div class="back"><i class="fa fa-long-arrow-left"></i></div>
         </div>
     </div>`;
-    let back = document.querySelector(".back").addEventListener("click", firstRender);
+    getID = 0;
+    product = null;
+    document.querySelector(".back").addEventListener("click", firstRender);
 }
 
-function favoritePage(event) {
-    arrFavCard.push(event.target.parentElement.parentElement.parentElement);
+function openBox(event) {
+    if (event.target.nextElementSibling.getAttribute("id") === "Favorite" && arrFav.length > 0) {
+        event.target.nextElementSibling.classList.toggle("notranslate");
+    }
+    if (event.target.nextElementSibling.getAttribute("id") === "Shopping" && arrShoppingCart.length > 0) {
+        event.target.nextElementSibling.classList.toggle("notranslate");
+    }
 }
+
+function AddFav(event) {
+    if (event.target.getAttribute("id")) {
+        getID = +event.target.getAttribute("id");
+    } else
+        getID = +event.target.parentElement.getAttribute("id");
+    if (!arrFav.find(item => item.id === getID)) {
+        arrFav.push(books.find(item => item.id === getID));
+    } else
+        arrFav.shift(books.find(item => item.id === getID));
+    FavSpan.textContent = +arrFav.length;
+    renderFav();
+}
+
 
 function renderFav() {
-    row.innerHTML = ""
-    arrFavCard.map(item => {
-        row.innerHTML += item.outerHTML;
-    })
+    let FavBox = document.querySelector(".FavCardBox");
+    FavBox.innerHTML = `
+    <div class="CartHeader">
+        <p><span class="CartCount">${arrFav.length}</span> عدد کالا</p>
+    </div>`;
+    arrFav.map(item => {
+        FavBox.innerHTML += `
+            <div class="FavCartMiddle">
+                <div class="leftCont">
+                    <div class="Cart__img--container CartImgCont">
+                        <img src="./assets/image/${item.imgSrc}">
+                    </div>
+                </div>
+                <div class="rightCont">
+                    <div class="Cart_title">
+                        <p>${item.title}</p>
+                        <p>${item.author}</p>
+                        <p><span class="gray">قیمت :</span> <span class="cardPrice">${item.price}</span>
+                            تومان</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+    });
 }
 
-// cart_icon.addEventListener("click", renderFav);
+function AddToCard(event) {
+    if (event.target.getAttribute("id")) {
+        getID = +event.target.getAttribute("id");
+    } else
+        getID = +event.target.parentElement.getAttribute("id");
+    if (!arrShoppingCart.find(item => item.id === getID)) {
+        arrShoppingCart.push(books.find(item => item.id === getID));
+    } else
+        arrShoppingCart.shift(books.find(item => item.id === getID));
+    ShoppingCardSpan.textContent = +arrShoppingCart.length;
+    renderShoppingCard();
+}
+
+function renderShoppingCard() {
+    let shoppingBox = document.querySelector(".ShoppingCardBox");
+    shoppingBox.innerHTML = `
+    <div class="CartHeader">
+        <p><span class="CartCount">${arrShoppingCart.length}</span> عدد کالا</p>
+    </div>`;
+    let count = 0;
+    arrShoppingCart.map(item => {
+        shoppingBox.innerHTML += `
+            <div class="CartMiddle">
+                <div class="leftCont">
+                    <div class="Cart__img--container CartImgCont">
+                        <img src="./assets/image/${item.imgSrc}">
+                    </div>
+                </div>
+                <div class="rightCont">
+                    <div class="Cart_title">
+                        <p>${item.title}</p>
+                        <p>${item.author}</p>
+                        <p><span class="gray">قیمت :</span> <span class="cardPrice">${item.price}</span> تومان
+                        </p>
+                    </div>
+                </div>
+            </div>`;
+            count += +item.price
+    })
+    shoppingBox.innerHTML += `
+    <div class="CartFooter">
+        <div>
+            <p>قیمت نهایی : <span class="TPrice">${count} </span>تومان</p>
+            <button class="ProceedtoCheckout">ثبت سفارش</button>
+        </div>
+    </div>`;
+}
+
 home.addEventListener("click", (event) => {
     event.preventDefault();
     myprom = new Promise(() => firstRender());
