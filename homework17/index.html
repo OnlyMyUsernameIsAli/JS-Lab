@@ -23,7 +23,7 @@
                 <img src="./logo/png/logo-white.png" alt="Fake Shop">
             </div>
             <div class="navigate__container">
-                <ul class="navigate__list d-flex flex-wrap align-content-center">
+                <ul class="navigate__list d-flex flex-wrap align-content-center" dir="rtl">
                     <li>Home</li>
                     <li>Products</li>
                     <li>Best Sellers</li>
@@ -34,47 +34,13 @@
             <div class="menu__icon__container">
                 <div class="menu__icon">
                     <ul>
-                        <li class="icon__bar">
+                        <li class="icon__bar" onclick="cartBox.classList.toggle('notranslate')">
                             <i class="fa fa-shopping-cart"></i>
-                            <span class="counter">01</span>
+                            <span class="counter">7</span>
                         </li>
                     </ul>
                     <div class="cart__container">
-                        <div class="CartHeader">
-                            <p><span class="CartCount">1</span>item</p>
-                        </div>
-                        <div class="CartMiddle">
-                            <div class="leftCont">
-                                <div class="Cart__img--container CartImgCont">
-                                    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg">
-                                </div>
-                                <div class="manipulation">
-                                    <ul>
-                                        <li class="minus">
-                                            <i class="fa fa-minus"></i>
-                                        </li>
-                                        <li class="Manipule__Counter">
-                                            <span class="Manipule__Counter__span">1</span>
-                                        </li>
-                                        <li class="plus">
-                                            <i class="fa fa-plus"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="rightCont">
-                                <div class="Cart_title">
-                                    <p><!-- ${item.title} -->Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
-                                    <p>price : <!--${item.price}-->109.95$</p>
-                                    <span><!--${item.rating.rate}-->3.9 <i class="fa fa-star"
-                                            style="color: #e5e525;"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="CartFooter">
-                            <p>Total price : <span class="TPrice"></span>109.95$</p>
-                            <button class="ProceedtoCheckout">Proceed to checkout</button>
-                        </div>
+                        <div class="headerCartRoot"></div>
                     </div>
                 </div>
             </div>
@@ -109,9 +75,9 @@
                 </div>
             </div>
         </aside>
-        <section class="Product__root row" style="width: calc(100% - 232px); margin-right: 1px;">
-        </section>
+        <section class="Product__root row" style="width: calc(100% - 232px); margin-right: 1px;"></section>
     </main>
+    <section class="rootSection"></section>
 </body>
 
 </html>

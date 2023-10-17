@@ -253,7 +253,6 @@ let home = document.querySelector(".home");
 let myprom = new Promise(() => firstRender());
 myprom.then(mySwiper())
 
-
 function firstRender() {
     main_root.classList.remove("showAll")
     main_root.innerHTML = `
@@ -430,7 +429,6 @@ function AddFav(event) {
     FavSpan.textContent = +arrFav.length;
     renderFav();
 }
-
 
 function renderFav() {
     let FavBox = document.querySelector(".FavCardBox");
